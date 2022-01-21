@@ -2,7 +2,7 @@ class Movie < ApplicationRecord
     before_save :capitalize_title
 
     def capitalize_title
-        self.title = self.title.split(/\s+/).map(&:downcase).
+      self.title = self.title.split(/\s+/).map(&:downcase).
         map(&:capitalize).join(' ')
     end
     
