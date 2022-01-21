@@ -1,13 +1,6 @@
 class MoviesController < ApplicationController
 
-  # before_action :set_current_user
-
-  # protected 
-  # def set_current_user
-  #   @current_user ||= Moviegoer.find_by_id(session[:user_id])
-  #   redirect_to login_path and return unless @current_user
-  # end
-
+  before_action :set_current_user
 
   def index
     # @movies = Movie.all
@@ -78,6 +71,12 @@ class MoviesController < ApplicationController
       client_wants.html {  redirect_to movies_path  }
       client_wants.xml  {  render :xml => @movie.to_xml    }
     end
+  end
+
+  protected 
+  def set_current_user
+    @current_user ||= Moviegoer.find_by_id(session[:user_id])
+    Rails.logger.debug("@current_user : #{@current_user}")
   end
 
   private
