@@ -21,17 +21,26 @@ body {
     padding: 0 50px;
 }
 
+.validate {
+    padding: 5px 10px ;
+}
+.validate ul {
+    margin: 2px 0 ;
+}
+
+
 .message {
     padding: 7px 10px;
     margin: 0.5em 0;
     color: white;
     border-radius: 5px;
 }
+
 #warning {
     background: #ff9800;
 }
 
-#notice  {
+#notice {
     background: #04AA6D;
 
 }
@@ -132,7 +141,7 @@ td a {
 
 td a:hover {
     color: rgb(88, 2, 2);
-    text-decoration:underline ;
+    text-decoration: underline;
 }
 
 tbody tr {

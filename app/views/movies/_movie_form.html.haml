@@ -1,3 +1,10 @@
+- unless @movie.errors.empty?
+    %div.validate
+        %div.message#warning 
+            "Errors prevented this movie from being #{controller.action_name}d:"
+            %ul
+                - @movie.errors.full_messages.each do |error|
+                    %li= error
 %dl
     %div.div-list
         %dt

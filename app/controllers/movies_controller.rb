@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+
+
   def index
     # @movies = Movie.all
     @movies = Movie.all.order(:title)
@@ -25,14 +27,20 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Movie.new
   end
 
   def create
-    @movie = Movie.create!(movies_params)
-    flash[:notice] = "#{@movie.title} was successfully created."
-    respond_to do |client_wants|
-      client_wants.html {  redirect_to movie_path(@movie)  }
-      client_wants.xml  {  render :xml => @movie.to_xml    }
+    @movie = Movie.create(movies_params)
+    Rails.logger.debug("@movie: #{@movie}")
+    if @movie.save
+      flash[:notice] = "#{@movie.title} was successfully created."
+      respond_to do |client_wants|
+        client_wants.html {  redirect_to movie_path(@movie)  }
+        client_wants.xml  {  render :xml => @movie.to_xml    }
+      end
+    else 
+      render 'new'
     end
   end
 
@@ -42,12 +50,16 @@ class MoviesController < ApplicationController
    
   def update
     @movie = Movie.find params[:id]
-    @movie.update(movies_params)
-    flash[:notice] = "#{@movie.title} was successfully updated."
-    respond_to do |client_wants|
-      client_wants.html {  redirect_to movie_path(@movie)  }
-      client_wants.xml  {  render :xml => @movie.to_xml    }
+    if @movie.update(movies_params)
+      flash[:notice] = "#{@movie.title} was successfully updated."
+      respond_to do |client_wants|
+        client_wants.html {  redirect_to movie_path(@movie)  }
+        client_wants.xml  {  render :xml => @movie.to_xml    }
+      end
+    else
+      render 'edit'
     end
+
   end
 
   def destroy
