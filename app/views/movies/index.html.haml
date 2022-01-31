@@ -1,12 +1,15 @@
 %div.card
   %div.header
     %h1 All Movies
-  %div
-    - if @current_user
-      %p.welcome  Welcome, 
-      = link_to 'Log Out', logout_path
-    - else
-      %p.login=link_to 'Log in with your Twitter account',login_path('twitter')
+  %div.logInTwitter
+    %div.profile
+      - if @current_user
+        %img{:src => session[:image]}
+        %p.welcome 
+          = session[:name]
+        = button_to raw('<i class="fas fa-sign-out-alt"></i> Log Out'), logout_path,method: :post ,class: "btn btn-danger"
+      - else
+        =button_to raw('<i class="fab fa-twitter"></i> Log in with Twitter'),'/auth/twitter' ,method: :post ,class: "btn btn-primary"
   %div.body
     %div.table-broder
       %table#movies
@@ -27,5 +30,3 @@
               %td= link_to "More about #{movie.title}", movie_path(movie)
 
     = link_to "Add new movie", new_movie_path ,class: "btn btn-primary"
-    = link_to "Connect Twitter", "/auth/twitter", method: :post, class: "btn btn-primary"
-    = button_to "Connect Twitter", "/auth/twitter", method: :post, class: "btn btn-primary"

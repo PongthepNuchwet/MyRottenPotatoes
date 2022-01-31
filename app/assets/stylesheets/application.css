@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-
 *,
 ::after,
 ::before {
@@ -13,7 +11,6 @@ body {
     margin: 0;
     background-color: #f3f4f6;
     font-family: 'Roboto', sans-serif;
-
 }
 
 #main {
@@ -22,12 +19,12 @@ body {
 }
 
 .validate {
-    padding: 5px 10px ;
-}
-.validate ul {
-    margin: 2px 0 ;
+    padding: 5px 10px;
 }
 
+.validate ul {
+    margin: 2px 0;
+}
 
 .message {
     padding: 7px 10px;
@@ -42,7 +39,6 @@ body {
 
 #notice {
     background: #04AA6D;
-
 }
 
 .card .header {
@@ -86,7 +82,8 @@ header a {
     letter-spacing: 3px;
 }
 
-#main .card h1, h2 {
+#main .card h1,
+h2 {
     margin-bottom: 0;
     margin-top: 0;
     color: #d25600;
@@ -110,7 +107,6 @@ table {
     text-indent: 0;
     border-color: inherit;
     min-width: 100%;
-
 }
 
 thead {
@@ -195,7 +191,6 @@ dd {
     grid-column: span 2/span 2;
     font-size: 1.2rem;
     line-height: 1.25rem;
-
 }
 
 .div-list {
@@ -220,6 +215,7 @@ dd {
 form {
     display: inline-block;
 }
+
 
 /* .btn-primary {
     color: #fff;
@@ -316,7 +312,6 @@ select {
 }
 
 option {
-
     font-family: inherit;
     text-transform: none;
     word-wrap: normal;
@@ -324,4 +319,29 @@ option {
     line-height: 1.5;
     color: #212529;
     box-sizing: border-box;
+}
+
+.logInTwitter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.logInTwitter p {}
+
+.logInTwitter img {
+    border-radius: 7px;
+}
+
+.profile {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    column-gap: 10px;
+    padding: 3px 5px;
+    background-color: #e5e3e5;
 }
