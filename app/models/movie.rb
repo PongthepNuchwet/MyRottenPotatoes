@@ -1,5 +1,6 @@
 class Movie < ApplicationRecord
     has_many :reviews
+    has_many :moviegoers, :through => :reviews
     before_save :capitalize_title
     
 
