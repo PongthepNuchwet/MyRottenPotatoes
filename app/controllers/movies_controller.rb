@@ -1,5 +1,12 @@
 class MoviesController < ApplicationController
 
+  def movies_with_filters
+    @movies = Movie.with_good_reviews(params[:threshold])
+    @movies = @movies.for_kids          if params[:for_kids]
+    @movies = @movies.with_many_fans    if params[:with_many_fans]
+    @movies = @movies.recently_reviewed if params[:recently_reviewed]
+  end
+
   def index
     # @movies = Movie.all
     @movies = Movie.all.order(:title)
