@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "movies#index"
-  resources :movies
+  resources :movies do
+    resources :reviews
+  end
 
   get  'auth/:provider/callback' => 'sessions#create',:as => 'login'
   post 'logout' => 'sessions#destroy'
