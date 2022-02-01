@@ -1,0 +1,19 @@
+- unless @review.errors.empty?
+    %div.validate
+        %div.message#warning 
+            "Errors prevented this review from being #{controller.action_name}d:"
+            %ul
+                - @movie.errors.full_messages.each do |error|
+                    %li= error
+%dl
+    %div.div-list
+        %dt
+            = label :review, :potatoes, 'Potatoes'
+        %dd 
+            = select :review, :potatoes, [5,4,3,2,1] 
+
+    %div.div-list
+        %dt
+            = label :review, :comments, 'comments'
+        %dd 
+            = text_area :review, :comments ,class: 'custom'

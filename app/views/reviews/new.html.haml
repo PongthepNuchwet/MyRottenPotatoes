@@ -1,0 +1,10 @@
+%div.card
+  %div.f-block
+    = form_tag movie_reviews_path(@movie,@review), :method => :post do
+      %div.header
+        %h2 Create New Review : #{@movie.title}
+      %div.body.p-0
+        = render :partial => 'reviews_form'
+      %div.footer
+        = submit_tag "Save changes" , class: "btn btn-primary"
+        = link_to 'Cancel', movies_path , class: "btn btn-warning"

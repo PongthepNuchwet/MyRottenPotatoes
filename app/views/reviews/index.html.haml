@@ -1,0 +1,26 @@
+%div.card
+    %div.f-block
+        %div.header
+            %h2  Review : #{@movie.title}
+        %div.body
+            %div.logInTwitter
+                = link_to "Add a new review", new_movie_review_path(@movie) ,class: "btn btn-primary"
+            %div.table-broder
+                %table#movies
+                    %thead
+                        %tr
+                        %th id
+                        %th Potatoes
+                        %th Comments
+                        %th moviegoer
+                    %tbody
+                        - @movie.reviews.each_with_index do |review,index|
+                            %tr
+                                %td= index+1
+                                %td
+                                    - n = '1'
+                                    - (1..review.potatoes.to_i).each do |i|
+                                        = image_tag("Potatoe.png" ,class: 'potatoe')   
+                                %td= review.comments
+                                %td= review.moviegoer.name
+            = link_to 'Back to movie list', movies_path ,class: "btn btn-warning"

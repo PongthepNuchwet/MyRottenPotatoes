@@ -1,7 +1,5 @@
 class MoviesController < ApplicationController
 
-  before_action :set_current_user
-
   def index
     # @movies = Movie.all
     @movies = Movie.all.order(:title)
@@ -73,14 +71,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  protected 
-  def set_current_user
-    @current_user ||= Moviegoer.find_by_id(session[:user_id])
-    Rails.logger.debug("@current_user : #{@current_user}")
-    if @current_user
-      redirect_to root_path and return unless @current_user
-    end
-  end
+  
 
   private
     def movies_params
