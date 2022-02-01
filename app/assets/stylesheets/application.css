@@ -349,3 +349,33 @@ option {
 .potatoe {
     width: 30px;
 }
+
+.MoviesContainer {
+    /* display: flex;
+    flex-direction: row;
+    row-gap: 10px;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; */
+}
+
+.MoviesContainer .movie {
+    width: 240px;
+}
+
+.MoviesContainer .movie .img {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.MoviesContainer .movie .img img {
+    width: 100%;
+}
+
+.MoviesContainer .primary h3 {
+    margin: 2px 0;
+}
+
+.MoviesContainer .primary p {
+    margin: 2px 0;
+}

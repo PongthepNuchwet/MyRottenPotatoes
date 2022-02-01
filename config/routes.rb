@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'search/index'
+  post 'search/query' => 'search#index'
+  get 'search/:query/keyword' => 'search#query', :as => 'search_keyword'
   root "movies#index"
   resources :movies do
     resources :reviews

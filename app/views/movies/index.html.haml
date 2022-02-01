@@ -32,3 +32,10 @@
               %td= link_to "All reviews for this moview", movie_reviews_path(movie)
 
     = link_to "Add new movie", new_movie_path ,class: "btn btn-primary"
+%div.card
+  %div.header
+    %h1 Search TMDb for a movie
+  %div.body
+    = form_tag search_query_path, :method => :post do
+      = text_field :query , :value , class: 'custom'
+      = submit_tag "Search" , class: "btn btn-primary"

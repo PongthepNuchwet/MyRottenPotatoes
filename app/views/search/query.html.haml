@@ -1,0 +1,18 @@
+%div.card
+    %div.header
+        %h2 Search TMDb for a movie : #{@query}
+    %div.body
+        %div.MoviesContainer.row
+            - @movies.each_with_index do |movie,index|
+                %div.movie.col-2
+                    %div.img
+                        =image_tag("https://image.tmdb.org/t/p/w500#{movie.poster_path}")   
+                    %div.primary
+                        %h3 #{movie.title}
+                        %p.date #{movie.release_date}
+                        %p Vote average: #{movie.vote_average}
+                        %p Popularity: #{movie.popularity}
+                    %div.secondary
+                        %p
+                            =movie.overview
+        = link_to 'Back to movie list', movies_path ,class: "btn btn-warning"
