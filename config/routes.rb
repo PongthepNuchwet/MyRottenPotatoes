@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/index'
   root "movies#index"
   resources :movies do
     resources :reviews

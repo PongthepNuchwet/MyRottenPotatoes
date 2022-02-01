@@ -15,6 +15,19 @@ class Movie < ApplicationRecord
       Movie.joins(:reviews).where(['reviews.created_at >= ?',n.days.ago]).uniq
       }
 
+    def self.find_in_tmdb(string)
+      Tmdb::Api.key("a0de66eb6350860129a9073319dbed4c")
+      begin
+        Tmdb::Movie.find(string)
+      rescue NoMethodError => tmdb_gem_exception
+        if Tmdb::Api.response['code'] == '401'
+          raise Movie::InvalidKeyError, 'Invalid API key'
+        else
+          raise tmdb_gem_exception
+        end
+      end
+    end
+
     def capitalize_title
       self.title = self.title.split(/\s+/).map(&:downcase).
         map(&:capitalize).join(' ')

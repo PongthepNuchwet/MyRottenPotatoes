@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
     # @movies = Movie.all
     @movies = Movie.all.order(:title)
     @movies = @movies.sort_by { |value| value.title}
+
+    
     # Rails.logger.debug(@movies.class)
   end
 
