@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  potatoes: 1
+  comments: MyText
+  moviegoer: one
+  movie: one
+
+two:
+  potatoes: 1
+  comments: MyText
+  moviegoer: two
+  movie: two
