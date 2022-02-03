@@ -3,7 +3,7 @@ class Movie < ApplicationRecord
     has_many :moviegoers, :through => :reviews
     before_save :capitalize_title
 
-    scope :with_good_reviews, lambda { |threshold|
+    scope :movies_with_good_reviews, lambda { |threshold|
       Movie.joins(:reviews).group(:movie_id).
         having(['AVG(reviews.potatoes) > ?', threshold])
     }

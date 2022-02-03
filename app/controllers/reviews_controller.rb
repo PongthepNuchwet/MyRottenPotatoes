@@ -2,9 +2,7 @@ class ReviewsController < ApplicationController
   before_action :lookup_movie 
   def index
     @movie = Movie.find(params[:movie_id])
-    @reviews = @movie.reviews
-    
-    # join = Movie.joins(:moviegoers).select('reviews.potatoes,reviews.comments,moviegoers.name')
+    @reviews ||= @movie.reviews
   end
 
   def create

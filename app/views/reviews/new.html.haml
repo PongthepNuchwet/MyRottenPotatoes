@@ -7,4 +7,4 @@
         = render :partial => 'reviews_form'
       %div.footer
         = submit_tag "Save changes" , class: "btn btn-primary"
-        = link_to 'Cancel', movies_path , class: "btn btn-warning"
+        = link_to 'Cancel', movie_reviews_path(@movie) , class: "btn btn-warning"

@@ -6,7 +6,7 @@
       - if @current_user
         %img{:src => session[:image]}
         %p.welcome 
-          = session[:name]
+          = @current_user.name
         = button_to raw('<i class="fas fa-sign-out-alt"></i> Log Out'), logout_path,method: :post ,class: "btn btn-danger"
       - else
         =button_to raw('<i class="fab fa-twitter"></i> Log in with Twitter'),'/auth/twitter' ,method: :post ,class: "btn btn-primary"
