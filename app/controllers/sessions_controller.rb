@@ -19,5 +19,10 @@ class SessionsController < ApplicationController
         redirect_to movies_path
     end
 
+    def failure 
+        flash[:warning] = params[:message]
+        redirect_to movies_path
+    end
+
 
 end
