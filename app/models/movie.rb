@@ -49,7 +49,4 @@ class Movie < ApplicationRecord
     def grandfathered?
       release_date && release_date >= @@grandfathered_date
     end
-
-    
-
 end

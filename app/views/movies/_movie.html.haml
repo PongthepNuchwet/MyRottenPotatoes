@@ -1,0 +1,19 @@
+%div.table-broder
+%table#movies
+  %thead
+    %tr
+      %th id
+      %th Movie Title
+      %th Rating
+      %th Release Date
+      %th More Info
+      %th All review
+  %tbody
+    - @movies.each_with_index do |movie,index|
+      %tr
+        %td= index+1
+        %td= movie.title 
+        %td= movie.rating
+        %td= movie.release_date
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+        %td= link_to "All reviews for this moview", movie_reviews_path(movie)
