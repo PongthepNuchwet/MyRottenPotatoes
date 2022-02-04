@@ -1,0 +1,49 @@
+header {
+    margin: 0 0 1em;
+    padding: 10px;
+    background-color: orange;
+    color: white;
+}
+
+header a {
+    margin: 0 0;
+    font-size: 2rem;
+    font-style: normal;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.header-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+
+.logInTwitter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.logInTwitter .profile {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.logInTwitter .profile img {
+    border-radius: 50%;
+    height: 30px;
+}
+
+.logInTwitter .profile p {
+    margin: 0;
+}
+
+.logInTwitter .button .btn {
+    padding: 4px 6px;
+}

@@ -1,15 +1,6 @@
 %div.card
   %div.header
     %h1 All Movies
-  %div.logInTwitter
-    %div.profile
-      - if @current_user
-        %img{:src => session[:image]}
-        %p.welcome 
-          = @current_user.name
-        = button_to raw('<i class="fas fa-sign-out-alt"></i> Log Out'), logout_path,method: :post ,class: "btn btn-danger"
-      - else
-        =button_to raw('<i class="fab fa-twitter"></i> Log in with Twitter'),'/auth/twitter' ,method: :post ,class: "btn btn-primary"
   %div.body
     %div.table-broder
       %table#movies
@@ -31,11 +22,14 @@
               %td= link_to "More about #{movie.title}", movie_path(movie)
               %td= link_to "All reviews for this moview", movie_reviews_path(movie)
 
-    = link_to "Add new movie", new_movie_path ,class: "btn btn-primary"
+    = link_to raw('<i class="fas fa-plus"></i> Add new movie'), new_movie_path ,class: "btn btn-primary"
 %div.card
   %div.header
     %h1 Search TMDb for a movie
   %div.body
     = form_tag search_query_path, :method => :post do
-      = text_field :query , :value , class: 'custom'
-      = submit_tag "Search" , class: "btn btn-primary"
+      %div.formInline
+        = text_field :query , :value , class: 'custom'
+        = button_tag(type: "submit", class: "btn btn-primary btn-search") do 
+          <i class="fas fa-search"></i> Search
+        

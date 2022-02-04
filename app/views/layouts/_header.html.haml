@@ -1,2 +1,14 @@
 %header
-    = link_to "Rotten Potatoes" , movies_path
+    %div.header-flex
+        = link_to "Rotten Potatoes" , movies_path
+        %div.logInTwitter
+            - if @current_user
+                %div.profile
+                    %img{:src => session[:image]}
+                    %p.welcome 
+                        = @current_user.name
+                %div.button
+                    = button_to raw('<i class="fas fa-sign-out-alt"></i> Log Out'), logout_path,method: :post ,class: "btn btn-danger"
+            - else
+                %div.button
+                    =button_to raw('<i class="fab fa-twitter"></i> Log in with Twitter'),'/auth/twitter' ,method: :post ,class: "btn btn-primary"

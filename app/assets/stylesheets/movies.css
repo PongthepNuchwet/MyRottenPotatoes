@@ -1,0 +1,15 @@
+.formInline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.btn-search {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}

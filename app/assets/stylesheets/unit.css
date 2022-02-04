@@ -1,0 +1,21 @@
+/* display */
+
+.d-flex {
+    display: flex !important;
+}
+
+.f-row {
+    flex-direction: row;
+}
+
+.justify-content-space-between {
+    justify-content: space-between !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.column-gap-5 {
+    column-gap: 5px;
+}

@@ -1,0 +1,11 @@
+.MoviesContainer .movie {
+    background-color: #81818017;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.MoviesContainer .movie .img {}
+
+.MoviesContainer .movie .img img {
+    width: 100%;
+}

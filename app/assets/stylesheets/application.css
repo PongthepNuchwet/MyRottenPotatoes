@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "unit.css";
+@import "header.css";
 *,
 ::after,
 ::before {
@@ -62,24 +64,6 @@ body {
     box-shadow: 0px 2px 3px 0px rgb(0 0 0 / 20%);
     background-color: white;
     margin-bottom: 10px;
-}
-
-header {
-    margin: 0 0 1em;
-    padding: 10px;
-    background-color: orange;
-    color: white;
-    border-bottom: 3px solid gold;
-}
-
-header a {
-    margin: 0 0;
-    font-size: 2rem;
-    font-style: normal;
-    text-decoration: none;
-    color: #880a00;
-    font-weight: 600;
-    letter-spacing: 3px;
 }
 
 #main .card h1,
@@ -216,51 +200,40 @@ form {
     display: inline-block;
 }
 
-
-/* .btn-primary {
-    color: #fff;
-    background-color: #f68307;
-    border-color: #9a6a05;
-}
-
-.btn-primary:hover {
-    background-color: #f2a502;
-} */
-
 .btn-seccondary {
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #4CAF50 !important;
 }
 
 .btn-seccondary:hover {
-    background-color: rgb(65, 150, 67);
+    background-color: rgb(65, 150, 67) !important;
 }
 
 .btn-danger {
     color: #fff;
-    background-color: #f44336;
+    background-color: #f44336 !important;
 }
 
 .btn-danger:hover {
-    background-color: #c4362c;
+    background-color: #c4362c !important;
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #00a2ff;
+    background-color: #00a2ff !important;
 }
 
 .btn-primary:hover {
-    background-color: #0366fa;
+    background-color: #0366fa !important;
 }
 
 .btn-warning {
     color: rgb(56, 56, 56);
-    background-color: #ffd900;
+    background-color: #ffd900 !important;
 }
 
 .btn-warning:hover {
-    background-color: #dbbb03;
+    background-color: #dbbb03 !important;
 }
 
 .f-block form {
@@ -286,14 +259,14 @@ form {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-select {
+
+/* select {
     box-sizing: border-box;
     margin: 0;
     font-family: inherit;
     text-transform: none;
     word-wrap: normal;
     display: inline-block;
-    /* width: 100%; */
     padding: .375rem 2.25rem .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -319,63 +292,4 @@ option {
     line-height: 1.5;
     color: #212529;
     box-sizing: border-box;
-}
-
-.logInTwitter {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-}
-
-.logInTwitter p {}
-
-.logInTwitter img {
-    border-radius: 7px;
-}
-
-.profile {
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-    column-gap: 10px;
-    padding: 3px 5px;
-    background-color: #e5e3e5;
-}
-
-.potatoe {
-    width: 30px;
-}
-
-.MoviesContainer {
-    /* display: flex;
-    flex-direction: row;
-    row-gap: 10px;
-    column-gap: 20px;
-    flex-wrap: wrap;
-    width: 100%; */
-}
-
-.MoviesContainer .movie {
-    width: 240px;
-}
-
-.MoviesContainer .movie .img {
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.MoviesContainer .movie .img img {
-    width: 100%;
-}
-
-.MoviesContainer .primary h3 {
-    margin: 2px 0;
-}
-
-.MoviesContainer .primary p {
-    margin: 2px 0;
-}
+} */
