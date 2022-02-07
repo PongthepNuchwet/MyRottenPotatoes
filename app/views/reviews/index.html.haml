@@ -13,6 +13,7 @@
                         %th Potatoes
                         %th Comments
                         %th moviegoer
+                        %th action
                     %tbody
                         - if @reviews
                             - @movie.reviews.each_with_index do |review,index|
@@ -25,6 +26,7 @@
                                                 = image_tag("Potatoe.png" ,class: 'potatoe')   
                                     %td= review.comments
                                     %td= review.moviegoer.name
+                                    %td= link_to "Edit", edit_movie_review_path(@movie,review)
                         - else
                             %p No
             = link_to 'Back to movie list', movies_path ,class: "btn btn-warning"

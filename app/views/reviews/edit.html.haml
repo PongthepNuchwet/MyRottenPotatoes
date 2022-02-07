@@ -1,0 +1,10 @@
+%div.card
+  %div.f-block
+    = form_tag movie_review_path(@movie,@review), :method => :put do
+      %div.header
+        %h1 Edit Review : #{@movie.title}
+      %div.body.p-0
+        = render :partial => 'reviews_form'
+      %div.footer
+        = submit_tag "Update review " , class: "btn btn-primary"
+        = link_to 'Cancel', movie_reviews_path(@movie) , class: "btn btn-warning"
