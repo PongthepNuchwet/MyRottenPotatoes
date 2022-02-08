@@ -4,8 +4,6 @@
     border-radius: 10px;
 }
 
-.MoviesContainer .movie .img {}
-
 .MoviesContainer .movie .img img {
     width: 100%;
 }
