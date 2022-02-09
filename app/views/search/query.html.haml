@@ -2,19 +2,19 @@
     %div.header
         %h1 Search TMDb for a movie : #{@query}
     %div.body
-        %div.MoviesContainer.grid.grid-cols-4.gap-3
+        %div.MoviesContainer
             - @movies.each_with_index do |movie,index|
                 %div.movie
                     %div.img
                         =image_tag("https://image.tmdb.org/t/p/w500#{movie.poster_path}")
-                    %div.p-3
+                    %div.content
                         %div.title
                             %h1 #{movie.title}
-                            %div.detail.mt-1
+                            %div.detail
                                 %p.date Release date: #{movie.release_date}
                                 %p Vote average: #{movie.vote_average}
                                 %p Popularity: #{movie.popularity}
-                        %div.secondary.mt-2
+                        %div.overview
                             %p
                                 =movie.overview
-        = link_to 'Back to movie list', movies_path ,class: "btn btn-warning"
+        = link_to raw('<i class="bi bi-reply"></i> Back to movie list'), movies_path ,class: "btn btn-warning"

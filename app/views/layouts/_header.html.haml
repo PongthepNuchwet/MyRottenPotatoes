@@ -8,8 +8,8 @@
                     %p.welcome 
                         = @current_user.name
                 %div.button
-                    = button_to raw('<i class="fas fa-sign-out-alt"></i> Log Out'), logout_path,method: :post ,class: "btn btn-danger"
+                    = button_to raw('<i class="bi bi-door-open"></i> Log Out'), logout_path,method: :post ,class: "btn btn-danger"
             - else
                 %div.button
-                    =button_to raw('<i class="fab fa-twitter"></i> Log in with Twitter'),'/auth/twitter' ,method: :post ,class: "btn btn-primary"
-                    =button_to raw('<i class="fab fa-facebook-f"></i> Log in with Facebook'),'/auth/facebook' ,method: :post ,class: "btn btn-primary"
+                    =button_to raw('<i class="bi bi-twitter"></i> Log in with Twitter'),'/auth/twitter' ,method: :post ,class: "btn btn-twitter"
+                    =button_to raw('<i class="bi bi-facebook"></i> Log in with Facebook'),'/auth/facebook' ,method: :post ,class: "btn btn-facebook"

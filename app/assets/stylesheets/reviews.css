@@ -1,3 +1,92 @@
 .potatoe {
     width: 30px;
 }
+
+.float-right {
+    float: right;
+}
+
+.add-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.card-comments {
+    /* width: 70%; */
+    margin-top: 5px;
+}
+
+.card-comment {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+    padding: 8px;
+    background-color: #f1f1f1;
+    border-radius: 7px;
+}
+
+.card-comment .profile {
+    float: left;
+    font-size: 30px;
+}
+
+.comment-text {
+    margin-left: 40px;
+}
+
+.comment-text .username {
+    color: #495057;
+    display: block;
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.comment-text .potatoe {
+    display: flex;
+    flex-direction: row;
+    margin-top: 7px;
+}
+
+.comment-text .comments {
+    margin-top: 8px;
+    color: #495057;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.text-muted {
+    float: right;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.comment-text a {
+    text-decoration: none;
+    color: #d25600;
+    font-weight: 500;
+}
+
+.comment-text a:hover {
+    text-decoration: underline;
+}
+
+.average .img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.average-tx {
+    text-align: center;
+}
+
+.average-potatoe {
+    height: 55px;
+}
+
+.No-reviews-found {
+    text-align: center;
+    font-size: 20px;
+}

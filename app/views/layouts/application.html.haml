@@ -4,13 +4,8 @@
     %title RottenPotatoes!
     = stylesheet_link_tag 'application'
     = stylesheet_link_tag params[:controller]
-    = javascript_include_tag 'application'
-    = javascript_include_tag 'https://cdn.tailwindcss.com'
     = csrf_meta_tags
-    %link{:rel => "stylesheet", :href => 'https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css', :integrity => "sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" , :crossorigin => "anonymous"}
-    %link{:rel => "stylesheet", :href => 'https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css', :integrity => "sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" , :crossorigin => "anonymous"}
-    %link{:rel => "stylesheet", :href => 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css', :integrity => "sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" , :crossorigin => "anonymous"}
-    %link{:rel => "stylesheet", :href => 'https://cdn.jsdelivr.net/npm/bootstrap-v4-grid-only@1.0.0/dist/bootstrap-grid.min.css'}
+    %link{:rel => "stylesheet", :href => 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css'}
 
   %body
     = render "layouts/header"

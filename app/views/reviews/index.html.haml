@@ -3,30 +3,35 @@
         %div.header
             %h1  Review : #{@movie.title}
         %div.body
-            %div.logInTwitter.flex.justify-end	
-                = link_to "Add a new review", new_movie_review_path(@movie) ,class: "btn btn-primary"
-            %div.table-broder
-                %table#movies
-                    %thead
-                        %tr
-                        %th id
-                        %th Potatoes
-                        %th Comments
-                        %th moviegoer
-                        %th action
-                    %tbody
-                        - if @reviews
-                            - @movie.reviews.each_with_index do |review,index|
-                                %tr
-                                    %td= index+1
-                                    %td
-                                        %div.flex
-                                            - n = '1'
-                                            - (1..review.potatoes.to_i).each do |i|
-                                                = image_tag("Potatoe.png" ,class: 'potatoe')   
-                                    %td= review.comments
-                                    %td= review.moviegoer.name
-                                    %td= link_to "Edit", edit_movie_review_path(@movie,review)
-                        - else
-                            %p No
-            = link_to 'Back to movie list', movies_path ,class: "btn btn-warning"
+            - if @movie.reviews.count(:potatoes) > 0
+                %div.average
+                    %div.img
+                        - (@potatoes).each do |i|
+                            = image_tag(i ,class: 'average-potatoe')
+                    %p.average-tx
+                        %strong
+                            Average
+                        = @movie.reviews.average(:potatoes).round(2)
+            %div.card-comments
+                - if @movie.reviews.count(:potatoes) > 0
+                    - @movie.reviews.order(created_at: :desc).each_with_index do |review,index|
+                        %div.card-comment
+                            %i.bi.bi-person-circle.profile
+                            %div.comment-text
+                                %span.username
+                                    = review.moviegoer.name
+                                    %span.text-muted
+                                        = review.updated_at
+                                %div.potatoe
+                                    - n = '1'
+                                    - (1..review.potatoes.to_i).each do |i|
+                                        = image_tag("Potatoe.png" ,class: 'potatoe')
+                                %div.comments
+                                    = review.comments
+                                = link_to "Edit", edit_movie_review_path(@movie,review) , class: "btn-edite-rewiew"
+                - else
+                    %div.card-comment
+                        %p.No-reviews-found No reviews found.
+        %div.footer
+            = link_to raw('<i class="bi bi-plus-circle"></i> Add a new review'), new_movie_review_path(@movie) ,class: "btn btn-primary"
+            = link_to raw('<i class="bi bi-reply"></i> Back to movie list'), movies_path ,class: "btn btn-warning"

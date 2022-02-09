@@ -22,7 +22,7 @@
               %td= link_to "More about #{movie.title}", movie_path(movie)
               %td= link_to "All reviews for this moview", movie_reviews_path(movie)
 
-    = link_to raw('<i class="fas fa-plus"></i> Add new movie'), new_movie_path ,class: "btn btn-primary"
+    = link_to raw('<i class="bi bi-plus-circle"></i> Add new movie'), new_movie_path ,class: "btn btn-primary"
 %div.card
   %div.header
     %h1 Search TMDb for a movie
@@ -31,5 +31,5 @@
       %div.formInline
         = text_field :query , :value , class: 'custom'
         = button_tag(type: "submit", class: "btn btn-primary btn-search") do 
-          <i class="fas fa-search"></i> Search
+          <i class="bi bi-search"></i> Search
         

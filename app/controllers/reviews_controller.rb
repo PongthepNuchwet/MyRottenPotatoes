@@ -1,9 +1,31 @@
 class ReviewsController < ApplicationController
   before_action :lookup_movie 
   before_action :ensure_user ,only: [:edit, :update]
+
+
   def index
     @movie = Movie.find(params[:movie_id])
-    @reviews ||= @movie.reviews
+    @potatoes = image_potatoes(@movie.reviews.average(:potatoes))
+  end
+
+  def image_potatoes(number)
+    potatoes = Array.new
+    if number != nil 
+      while number > 0 
+        if number >= 1 
+            potatoes.push("Potatoe.png")
+            number = number - 1
+        else
+          if number >= 0.75 ; potatoes.push("Potatoe1-4.png")
+          elsif number >= 0.5 ; potatoes.push("Potatoe1-3.png")
+          elsif number > 0.25 ; potatoes.push("Potatoe1-2.png")
+          elsif number > 0 ; potatoes.push("Potatoe1-1.png")
+          end
+          number = 0
+        end
+      end
+    end
+    return potatoes
   end
 
   def create

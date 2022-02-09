@@ -1,9 +1,34 @@
+.MoviesContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+}
+
 .MoviesContainer .movie {
+    width: 100%;
     background-color: #81818017;
     overflow: hidden;
     border-radius: 10px;
 }
 
+.MoviesContainer .movie .detail {
+    margin-top: 10px;
+}
+
+.MoviesContainer .movie .detail p {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
 .MoviesContainer .movie .img img {
     width: 100%;
+}
+
+.movie .content {
+    padding: 10px;
+}
+
+.overview p {
+    line-height: 1.5;
 }
