@@ -1,0 +1,9 @@
+%div.card
+  %div.header
+    %h1 Search TMDb for a movie
+  %div.body
+    = form_tag search_query_path, :method => :post do
+      %div.formInline
+        = text_field :query , :value , class: 'custom'
+        = button_tag(type: "submit", class: "btn btn-primary btn-search") do 
+          <i class="bi bi-search"></i> Search

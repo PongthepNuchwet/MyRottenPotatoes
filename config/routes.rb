@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  get "movies/:threshold/filters" => 'movies#filters' , :as => 'movie_filters'
+
   get  'auth/:provider/callback' => 'sessions#create',:as => 'login'
   post 'logout' => 'sessions#destroy'
   get  'auth/failure' => 'sessions#failure'
