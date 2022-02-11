@@ -12,7 +12,7 @@ class Movie < ApplicationRecord
     }
 
     scope :recently_reviewed, lambda { |n|
-      Movie.joins(:reviews).where(['reviews.created_at >= ?',n.days.ago]).uniq
+      Movie.joins(:reviews).where(['reviews.created_at >= ?',n.to_i.days.ago]).uniq
       }
 
     def self.find_in_tmdb(string)

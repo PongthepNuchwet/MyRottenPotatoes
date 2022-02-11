@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  get "movies/:threshold/filters" => 'movies#filters' , :as => 'movie_filters'
+  get "movies/filters/for_kids" => 'movies#for_kids'
+  post "movies/filters/recently_reviewed" => 'movies#recently_reviewed' ,:as => 'recently_review'
+  get "filters" => 'movies#filters' ,:as => 'movies_filters'
 
   get  'auth/:provider/callback' => 'sessions#create',:as => 'login'
   post 'logout' => 'sessions#destroy'

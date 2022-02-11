@@ -1,7 +1,17 @@
 %div.card
   %div.header
-    %h1 All Movies
+    %h1 Movies filters
   %div.body
+    .filters
+      = link_to raw('<i class="bi bi-search"></i> For kids'), movies_filters_for_kids_path ,class: "btn btn-primary "
+      Recently reviewed
+      = form_tag recently_review_path, :method => :post do
+        
+        %div.formInline
+          
+          = text_field :query , :day , class: 'custom'
+          = button_tag(type: "submit", class: "btn btn-primary btn-search") do 
+            <i class="bi bi-search"></i> Search
     %div.table-broder
       %table#movies
         %thead
@@ -14,7 +24,5 @@
             %th All review
         %tbody
           =render :partial=>'movie', :collection=>@movies
-
-    = link_to raw('<i class="bi bi-plus-circle"></i> Add new movie'), new_movie_path ,class: "btn btn-primary"
-=render :partial=>'TMDb'
-        
+  %div.footer
+    = link_to raw('<i class="bi bi-reply"></i> Back to movie list'), movies_path ,class: "btn btn-warning"

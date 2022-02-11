@@ -13,3 +13,24 @@
     align-items: center;
     column-gap: 5px;
 }
+
+.filters {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.f-right {
+    float: right;
+}
+
+.d-block {
+    display: block;
+}
+
+.index-filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}

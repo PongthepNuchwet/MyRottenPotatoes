@@ -1,10 +1,17 @@
 class MoviesController < ApplicationController
 
   def filters
-    @movies = Movie.movies_with_good_reviews(params[:threshold])
-    @movies = @movies.for_kids          if params[:for_kids]
-    @movies = @movies.with_many_fans    if params[:with_many_fans]
-    @movies = @movies.recently_reviewed if params[:recently_reviewed]
+    render :template => "movies/filters"
+  end
+  
+  def for_kids
+    @movies = Movie.for_kids
+    render :template => "movies/filters"
+  end
+
+  def recently_reviewed
+    @movies = Movie.recently_reviewed(params[:query][:day])
+    render :template => "movies/filters"
   end
 
   def index

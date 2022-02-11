@@ -2,6 +2,8 @@
   %div.header
     %h1 All Movies
   %div.body
+    %div.index-filters 
+      = link_to raw('<i class="bi bi-funnel"></i> Filters'), movies_filters_path ,class: "btn btn-primary index-filters"
     %div.table-broder
       %table#movies
         %thead
