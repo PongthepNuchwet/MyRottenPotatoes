@@ -2,8 +2,19 @@
   %div.header
     %h1 All Movies
   %div.body
-    %div.index-filters 
-      = link_to raw('<i class="bi bi-funnel"></i> Filters'), movies_filters_path ,class: "btn btn-primary index-filters"
+    = form_tag root_path, :method => :get do
+      %div.formInline
+        = radio_button :query ,:filter , "default"
+        = label :filter, "default"
+        = radio_button :query ,:filter , "for_kids"
+        = label :filter, "For kids"
+        = radio_button :query ,:filter , "recently_reviewed"
+        = label :filter, "Recently reviewed"
+        = text_field :query , :day , class: 'custom'
+        = button_tag(type: "submit", class: "btn btn-primary btn-search") do 
+          <i class="bi bi-search"></i> Search
+
+   
     %div.table-broder
       %table#movies
         %thead

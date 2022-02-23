@@ -1,7 +1,12 @@
+class Reviews_params
+    
+end
+
 class ReviewsController < ApplicationController
   before_action :lookup_movie 
   before_action :ensure_user ,only: [:edit, :update]
 
+  
 
   def index
     @movie = Movie.find(params[:movie_id])
@@ -30,7 +35,6 @@ class ReviewsController < ApplicationController
 
   def create
     @movie = Movie.find(params[:movie_id])
-    Rails.logger.debug("@current_user.uid #{@current_user.id}")
     @moviegoer = Moviegoer.find(@current_user.id)
     
     @review = @movie.reviews.build(reviews_params)
@@ -81,7 +85,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-
   def lookup_movie 
     unless (@movie = Movie.find_by_id(params[:movie_id]))
       flash[:warning] = "movie_id not in params"
@@ -99,6 +102,4 @@ class ReviewsController < ApplicationController
     def reviews_params
       params.require(:review).permit(:potatoes, :comments)
     end
-
-
 end

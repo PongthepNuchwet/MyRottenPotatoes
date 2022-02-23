@@ -1,3 +1,56 @@
+require 'singleton'
+
+class MoviesParams
+  include Singleton
+
+  def Require1(params)
+    params.require(:movie).permit(:title, :rating,:description, :release_date)
+  end
+
+end
+
+class For_kids
+  def movies()
+    return @movies = Movie.for_kids
+  end
+end
+
+class Recently_reviewed
+  def initialize(params)
+    @@params = params
+  end
+  def movies()
+    return @movies = Movie.recently_reviewed(@@params[:query][:day])
+  end
+end
+
+
+class AdapterFilter
+
+  def initialize(params)
+    @@params = params
+  end
+
+  def filters()
+    if @@params[:query][:filter] == 'for_kids' 
+      for_kids = For_kids.new
+      return for_kids.movies()
+    elsif @@params[:query][:filter] == 'recently_reviewed' 
+      recently_reviewed = Recently_reviewed.new(@@params)
+      return recently_reviewed.movies()
+    else
+      return Movie.all.order(:title)
+    end
+  end
+end
+
+class NilFilter
+  def movies()
+    @movies = Movie.all.order(:title)
+    return @movies = @movies.sort_by { |value| value.title}
+  end
+end
+
 class MoviesController < ApplicationController
 
   def filters
@@ -15,12 +68,13 @@ class MoviesController < ApplicationController
   end
 
   def index
-    # @movies = Movie.all
-    @movies = Movie.all.order(:title)
-    @movies = @movies.sort_by { |value| value.title}
-
-    
-    # Rails.logger.debug(@movies.class)
+    if params[:query] 
+      adapterFilter = AdapterFilter.new(params)
+      @movies = adapterFilter.filters()
+    else 
+      nilFilter = NilFilter.new
+      @movies = nilFilter.movies()
+    end
   end
 
   def new_record?
@@ -46,7 +100,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(movies_params)
+    @movie = Movie.create(MoviesParams.instance.Require1(params))
     Rails.logger.debug("@movie: #{@movie}")
     if @movie.save
       flash[:notice] = "#{@movie.title} was successfully created."
@@ -65,7 +119,7 @@ class MoviesController < ApplicationController
    
   def update
     @movie = Movie.find params[:id]
-    if @movie.update(movies_params)
+    if @movie.update(MoviesParams.instance.Require1())
       flash[:notice] = "#{@movie.title} was successfully updated."
       respond_to do |client_wants|
         client_wants.html {  redirect_to movie_path(@movie)  }
@@ -89,8 +143,8 @@ class MoviesController < ApplicationController
 
   
 
-  private
-    def movies_params
-      params.require(:movie).permit(:title, :rating,:description, :release_date)
-    end
+  # private
+  #   def movies_params
+  #     params.require(:movie).permit(:title, :rating,:description, :release_date)
+  #   end
 end
