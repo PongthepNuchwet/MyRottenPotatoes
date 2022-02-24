@@ -5,7 +5,7 @@ class  Ensures_users_in_database
 end
 
 class Create_session 
-    def execute (user,auth)
+    def execute (user,auth,session)
         session[:user_id] = user.id
         session[:image] = auth[:info][:image]
     end
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         ensures = Ensures_users_in_database.new
         user = ensures.execute(@auth)
         create_session = Create_session.new
-        create_session.execute(user,@auth)
+        create_session.execute(user,@auth,session)
         redirect_to movies_path 
     end
     # def create
