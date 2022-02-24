@@ -1,8 +1,5 @@
-- index = movie_counter + 1
-%tr
-  %td= index
+%tr{:class => ('adult' unless movie.rating =~ /^G|PG$/)}
   %td= movie.title 
-  %td= movie.rating
+  %td= movie.rating 
   %td= movie.release_date
   %td= link_to "More about #{movie.title}", movie_path(movie)
-  %td= link_to "All reviews for this moview", movie_reviews_path(movie)

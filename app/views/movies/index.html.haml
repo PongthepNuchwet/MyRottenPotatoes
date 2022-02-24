@@ -13,21 +13,17 @@
         = text_field :query , :day , class: 'custom'
         = button_tag(type: "submit", class: "btn btn-primary btn-search") do 
           <i class="bi bi-search"></i> Search
-
-   
+    %div#movies
     %div.table-broder
       %table#movies
         %thead
           %tr
-            %th id
             %th Movie Title
             %th Rating
             %th Release Date
             %th More Info
-            %th All review
         %tbody
           =render :partial=>'movie', :collection=>@movies
-
     = link_to raw('<i class="bi bi-plus-circle"></i> Add new movie'), new_movie_path ,class: "btn btn-primary"
 =render :partial=>'TMDb'
         

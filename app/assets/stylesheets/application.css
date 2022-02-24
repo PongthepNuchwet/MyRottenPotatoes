@@ -392,3 +392,10 @@ header a {
 .column-gap-5 {
     column-gap: 5px;
 }
+
+#movieInfo {
+    padding: 2ex;
+    position: absolute;
+    border: 2px double grey;
+    background: wheat;
+}

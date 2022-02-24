@@ -39,12 +39,14 @@ class AdapterFilter
       recently_reviewed = Recently_reviewed.new(@@params)
       return recently_reviewed.movies()
     else
-      return Movie.all.order(:title)
+      return NilFilter.instance.movies()
     end
   end
 end
 
 class NilFilter
+  include Singleton
+  
   def movies()
     @movies = Movie.all.order(:title)
     return @movies = @movies.sort_by { |value| value.title}
@@ -72,8 +74,7 @@ class MoviesController < ApplicationController
       adapterFilter = AdapterFilter.new(params)
       @movies = adapterFilter.filters()
     else 
-      nilFilter = NilFilter.new
-      @movies = nilFilter.movies()
+      @movies = NilFilter.instance.movies()
     end
   end
 
@@ -86,6 +87,7 @@ class MoviesController < ApplicationController
     
     begin
       @movie = Movie.find(id) 
+      render(:partial => 'alert', :object => @movie) if request.xhr?
     rescue ActiveRecord::RecordNotFound => e
       flash[:warning] = "no movie with the given ID could be found"
       respond_to do |client_wants|

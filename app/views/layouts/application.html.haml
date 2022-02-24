@@ -4,9 +4,9 @@
     %title RottenPotatoes!
     = stylesheet_link_tag 'application'
     = stylesheet_link_tag params[:controller]
+    = javascript_include_tag 'my_js'
     = csrf_meta_tags
     %link{:rel => "stylesheet", :href => 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css'}
-
   %body
     = render "layouts/header"
 
